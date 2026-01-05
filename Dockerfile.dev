@@ -19,4 +19,4 @@ ENV CHOKIDAR_USEPOLLING=true \
     HOST=0.0.0.0
 
 # Run Vite dev server; --host makes it accessible outside container
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "dev"]
