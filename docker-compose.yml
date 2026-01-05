@@ -7,10 +7,6 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "5173:5173" # Vite dev server
-    environment:
-      - HOST=0.0.0.0
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true
     volumes:
       - .:/app             # Mount source for hot reload
       - /app/node_modules  # Anonymous volume: keep container deps separate from host
