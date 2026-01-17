@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Backend API for health tracker (blood pressure, etc.)",
   "main": "dist/server.js",
-  "type": "module",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
