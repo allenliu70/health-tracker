@@ -1,14 +1,44 @@
 version: "3.9"
 
 services:
-  web:
+  frontend:
     build:
-      context: .
+      context: ./frontend
       dockerfile: Dockerfile.dev
     ports:
-      - "5173:5173" # Vite dev server
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:4000/api
     volumes:
-      - .:/app             # Mount source for hot reload
-      - /app/node_modules  # Anonymous volume: keep container deps separate from host
-    # If running on Linux with stricter file perms, you can uncomment:
-    # user: "${UID:-1000}:${GID:-1000}"
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/health
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: health
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backend/prisma/migrations:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  pgdata:

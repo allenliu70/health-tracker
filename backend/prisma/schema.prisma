@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BPReading {
+  id        Int      @id @default(autoincrement())
+  systolic  Int
+  diastolic Int
+  pulse     Int?
+  takenAt   DateTime @default(now())
+  notes     String?
+  source    String?
+}
+
