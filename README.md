@@ -24,6 +24,75 @@ No need to install PostgreSQL or Node dependencies manually.
 
 ---
 
+## 👥 10. Contributors
+
+- **Allen Liu** — Full‑stack developer
+- **Tim Liu** — Co‑developer / tester
+
+---
+
+## 🎉 11. Quick Start Summary
+
+You only needs to run:
+
+```sh
+git clone https://github.com/allenliu70/health-tracker
+cd health-tracker
+docker compose up --build
+```
+
+Then open: `http://localhost:5173`
+
+Everything else is automated.
+
+---
+
+## 1. Architecture Overview
+
+### 1.1 High-Level System De
+
+```
+┌──────────────────────────┐
+│        Browser UI        │
+│  (React + Vite bundle)   │
+└─────────────┬────────────┘
+              │ HTTP (REST)
+              ▼
+┌──────────────────────────┐
+│      Backend API         │
+│   Node.js + Express      │
+│   Prisma ORM Client      │
+└─────────────┬────────────┘
+              │ SQL
+              ▼
+┌──────────────────────────┐
+│      PostgreSQL DB       │
+│  Stores BP readings      │
+└──────────────────────────┘
+```
+
+### 1.2 Docker Architecture
+
+```
+┌──────────────────────────────────────────────┐
+│                Docker Host                   │
+│                                              │
+│  ┌───────────────┐   ┌───────────────┐       │
+│  │  frontend     │   │   backend     │       │
+│  │ React + Vite  │   │ Node + Prisma │       │
+│  │ Serves UI     │   │ REST API      │       │
+│  └───────┬───────┘   └──────┬────────┘       │
+│          │ HTTP 5173        │ HTTP 4000      │
+│          ▼                  ▼                │
+│        Browser         Prisma Client         │
+│                                              │
+│              ┌──────────────────────┐        │
+│              │      postgres        │        │
+│              │   Stores readings    │        │
+│              └──────────────────────┘        │
+└──────────────────────────────────────────────┘
+```
+
 ## 🗂️ 2. Project Structure
 
 ```
@@ -196,24 +265,3 @@ docker compose ps
 Run: `docker compose run --rm backend npx prisma migrate dev`
 
 ---
-
-## 👥 10. Contributors
-
-- **Allen Liu** — Full‑stack developer
-- **Tim Liu** — Co‑developer / tester
-
----
-
-## 🎉 11. Quick Start Summary
-
-You only needs to run:
-
-```sh
-git clone https://github.com/allenliu70/health-tracker
-cd health-tracker
-docker compose up --build
-```
-
-Then open: `http://localhost:5173`
-
-Everything else is automated.
