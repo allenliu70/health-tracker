@@ -26,6 +26,7 @@ No need to install PostgreSQL or Node dependencies manually.
 
 ## 🗂️ 2. Project Structure
 
+```
 health-tracker/
 │
 ├── backend/ # Node.js + Express + Prisma API
@@ -37,6 +38,7 @@ health-tracker/
 │ └── .env # Frontend environment variables
 │
 └── docker-compose.yml
+```
 
 ---
 
