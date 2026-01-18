@@ -46,7 +46,7 @@ health-tracker/
 
 ### Backend (`backend/.env`)
 
-Already included:
+Already included in the repo:
 
 ```sh
 DATABASE_URL=postgres://postgres:postgres@db:5432/health
@@ -89,7 +89,7 @@ This will:
 
 ---
 
-## 🧪 5. Database Setup (Automatic)
+## 🧪 5. Database Setup (Handled Automatically)
 
 The backend container runs:
 
@@ -200,13 +200,13 @@ Run: `docker compose run --rm backend npx prisma migrate dev`
 ## 👥 10. Contributors
 
 - **Allen Liu** — Full‑stack developer
-- **Your brother** — Co‑developer / tester
+- **Tim Liu** — Co‑developer / tester
 
 ---
 
 ## 🎉 11. Quick Start Summary
 
-Your brother only needs to run:
+You only needs to run:
 
 ```sh
 git clone https://github.com/allenliu70/health-tracker
