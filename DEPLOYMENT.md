@@ -1,4 +1,20 @@
-# 🚀 Deployment Guide
+## 🎉 Quick Start Summary
+
+You only needs to run:
+
+```sh
+git clone https://github.com/allenliu70/health-tracker
+cd health-tracker
+docker compose up --build
+```
+
+Then open: `http://localhost:5173`
+
+Everything else is automated.
+
+---
+
+# 🚀 Additional Deployment Options (for reference only)
 
 This document covers:
 
@@ -67,13 +83,13 @@ You can deploy this app to:
 
 ### Environment variables
 
-#### Frontend:
+##### Frontend:
 
 ```
 VITE_API_URL=https://yourdomain.com/api
 ```
 
-#### Backend:
+##### Backend:
 
 ```
 DATABASE_URL=postgres://<user>:<pass>@<db-host>:5432/health
