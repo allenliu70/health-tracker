@@ -41,7 +41,11 @@ cd health-tracker
 docker compose up --build
 ```
 
-Then open: `http://localhost:5173`
+Then open:
+
+```
+http://localhost:5173
+```
 
 Everything else is automated.
 
