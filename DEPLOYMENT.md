@@ -53,32 +53,40 @@ http://<NAS-IP>:5173
 
 You can deploy this app to:
 
-DigitalOcean / Linode / Hetzner
-
-AWS EC2 / Lightsail
-
-A home server
-
-A NAS
+- DigitalOcean / Linode / Hetzner
+- AWS EC2 / Lightsail
+- A home server
+- A NAS
 
 ## 2.1 Recommended Production Setup
 
-Reverse proxy (Traefik or Nginx)
-Terminate HTTPS
+### Reverse proxy (Traefik or Nginx)
 
-Route traffic to frontend and backend
+- Terminate HTTPS
+- Route traffic to frontend and backend
 
-Environment variables
-Frontend: `VITE_API_URL=https://yourdomain.com/api`
-Backend: `DATABASE_URL=postgres://<user>:<pass>@<db-host>:5432/health`
+### Environment variables
 
-Database
+#### Frontend:
+
+```
+VITE_API_URL=https://yourdomain.com/api
+```
+
+#### Backend:
+
+```
+DATABASE_URL=postgres://<user>:<pass>@<db-host>:5432/health
+```
+
+### Database
+
 Use:
 
 - Managed Postgres (Neon, Supabase, RDS)
 - Or self‑hosted Postgres with backups
 
-Build and run
+### Build and run
 
 ```sh
 docker compose -f docker-compose.prod.yml up --build -d
