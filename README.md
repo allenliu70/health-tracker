@@ -1,18 +1,68 @@
-# React + Vite
+# 🩺 Health Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple full‑stack health tracking application built with:
 
-Currently, two official plugins are available:
+- **React + Vite** (frontend)
+- **Node.js + Express** (backend)
+- **PostgreSQL** (database)
+- **Prisma ORM**
+- **Docker Compose** for easy setup and deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This guide explains how to run the entire project on any machine — including a remote environment — with **zero manual setup** beyond Docker.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 1. Prerequisites
 
-## Expanding the ESLint configuration
+Make sure the machine has:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Docker**
+- **Docker Compose**
+- (Optional) **Node.js 18+** if running the frontend locally instead of Docker
 
+No need to install PostgreSQL or Node dependencies manually.
 
+---
+
+## 🗂️ 2. Project Structure
+
+health-tracker/
+│
+├── backend/ # Node.js + Express + Prisma API
+│ ├── prisma/ # Prisma schema + migrations
+│ ├── src/ # API routes and server code
+│ └── .env # Backend environment variables
+│
+├── frontend/ # React + Vite UI
+│ └── .env # Frontend environment variables
+│
+└── docker-compose.yml
+
+---
+
+## ⚙️ 3. Environment Variables
+
+### Backend (`backend/.env`)
+
+Already included:
+
+```
+DATABASE_URL=postgres://postgres:postgres@db:5432/health
+PORT=4000
+```
+
+### Frontend (`frontend/.env`)
+
+Also included:
+
+```
+VITE_API_URL=http://localhost:4000/api
+```
+
+This ensures the **browser** can reach the backend correctly.
+
+---
+
+## 🐳 4. Running the Entire Stack (Recommended)
+
+From the project root:
