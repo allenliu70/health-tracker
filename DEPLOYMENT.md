@@ -71,6 +71,7 @@ Route traffic to frontend and backend
 Environment variables
 Frontend: `VITE_API_URL=https://yourdomain.com/api`
 Backend: `DATABASE_URL=postgres://<user>:<pass>@<db-host>:5432/health`
+
 Database
 Use:
 

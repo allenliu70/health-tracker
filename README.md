@@ -265,3 +265,6 @@ docker compose ps
 Run: `docker compose run --rm backend npx prisma migrate dev`
 
 ---
+
+- [📚 API Reference](API_REFERENCE.md)
+- [🚀 Deployment Guide](DEPLOYMENT.md)

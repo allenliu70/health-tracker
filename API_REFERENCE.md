@@ -80,3 +80,52 @@ Response:
   }
 ]
 ```
+
+## 2.3 POST /bp
+
+Create a new blood pressure reading.
+
+```http
+POST /api/bp
+Content-Type: application/json
+```
+
+Body:
+
+```json
+{
+  "systolic": 125,
+  "diastolic": 82,
+  "pulse": 72,
+  "notes": "After workout",
+  "source": "Manual"
+}
+```
+
+Response:
+
+```json
+{
+  "id": 2,
+  "systolic": 125,
+  "diastolic": 82,
+  "pulse": 72,
+  "takenAt": "2024-01-01T12:00:00.000Z",
+  "notes": "After workout",
+  "source": "Manual"
+}
+```
+
+# 🧭 3. Error Responses
+
+400 — Validation error
+
+```json
+{ "error": "Invalid input" }
+```
+
+500 — Server error
+
+```json
+{ "error": "Internal server error" }
+```
